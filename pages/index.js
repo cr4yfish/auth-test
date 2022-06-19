@@ -2,12 +2,11 @@ import Head from 'next/head'
 import { Container, Text, Spacer } from "@nextui-org/react"
 import LoginButton from '../components/LoginButton'
 import AccessDenied from '../components/accessDenied'
-import { useSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home() {
-  const [ session, loading ] = useSession();
+  const { data: session } = useSession()
 
-  if(typeof window !== "undefined" && loading) return null;
 
   if(!session) { return <AccessDenied/> }
 
