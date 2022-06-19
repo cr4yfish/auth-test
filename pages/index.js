@@ -1,9 +1,16 @@
 import Head from 'next/head'
 import { Container, Text, Spacer } from "@nextui-org/react"
 import LoginButton from '../components/LoginButton'
-
+import AccessDenied from '../components/accessDenied'
+import { useSession } from "next-auth/react";
 
 export default function Home() {
+  const [ session, loading ] = useSession();
+
+  if(typeof window !== "undefined" && loading) return null;
+
+  if(!session) { return <AccessDenied/> }
+
   return (
     <div>
       <Head>
@@ -14,6 +21,7 @@ export default function Home() {
       <Container>
         <Spacer />
            <Text h1>Auth Test</Text>
+           <Text h2>Signed in as {session.user.name}</Text>
         <LoginButton />
       </Container>
 
