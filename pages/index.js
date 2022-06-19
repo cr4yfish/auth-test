@@ -19,8 +19,8 @@ export default function Home() {
       </Head>
       <Container>
         <Spacer />
-           <Text h1>Auth Test</Text>
-           <Text h2>Signed in as {session.user.name}</Text>
+        <Text h1>Auth Test</Text>
+        <Text h2>Signed in as {session.user.name}</Text>
         <LoginButton />
       </Container>
 

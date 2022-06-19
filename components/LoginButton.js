@@ -8,7 +8,7 @@ export default function LoginButton() {
         return (
             <>
             Signed in as {session.user.name} <br />
-            <Button color="warn" onClick={() => signOut()}>Sign out</Button>
+            <Button shadow color="warning" onClick={() => signOut()}>Sign out</Button>
             </>
         )
     }
