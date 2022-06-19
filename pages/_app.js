@@ -13,7 +13,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps} }) {
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
-        <Component {...pageProps} />
+            <NextThemesProvider
+    defaultTheme='dark'
+    attribute='class'
+    value={{dark: darkTheme.className}}
+  >
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  </NextThemesProvider>
     </SessionProvider>
 
 
